@@ -1,0 +1,17 @@
+{
+    "hosting":{
+        "site":"ccrms",
+        "public": "dist/backend",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+            
+        ],
+        "rewrites":[ {
+            "source": "**",
+            "destination": "/registration.html"
+        }]
+
+    }
+}
