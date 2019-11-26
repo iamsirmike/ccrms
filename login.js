@@ -30,6 +30,7 @@ const auth = firebase.auth();
 auth.onAuthStateChanged(function(user) {
   if (user) {
     window.location.href = "user.html";
+    // alert(user.email);
   } else {
     console.log("not logged in");
   }

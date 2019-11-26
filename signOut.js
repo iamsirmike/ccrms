@@ -12,12 +12,27 @@ var config = {
 
 firebase.initializeApp(config);
 
-const btnLogout = document.getElementById('logout')
-  btnLogout.addEventListener('click', e =>{
-    const auth = firebase.auth()
-    auth.signOut().then(function() {
-      window.location.href = "Login.html"
-    }).catch(function(error) {
+const btnLogout = document.getElementById("logout");
+btnLogout.addEventListener("click", e => {
+  const auth = firebase.auth();
+  auth
+    .signOut()
+    .then(function() {
+      window.location.href = "Login.html";
+    })
+    .catch(function(error) {
       // An error happened.
     });
-  })
+});
+
+//AUthchanged
+const auth = firebase.auth();
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    var email = user.email;
+    document.getElementById("txtemail").value = email;
+    console.log(email);
+  } else {
+    console.log("not logged in");
+  }
+});
